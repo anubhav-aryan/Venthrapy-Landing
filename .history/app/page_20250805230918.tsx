@@ -50,7 +50,7 @@ const BlobAnimation = () => {
   const palette = palettes[currentPalette as keyof typeof palettes];
 
   return (
-    <div className="relative w-full h-96 flex items-center justify-center">
+    <div className="relative w-full h-96 flex items-center justify-center overflow-hidden">
       {/* Background blur */}
       <div 
         className="absolute w-80 h-80 rounded-full transition-all duration-500 ease-in-out"
@@ -61,12 +61,11 @@ const BlobAnimation = () => {
         }}
       />
       
-      {/* Blob container - now invisible and larger */}
-      <div className="relative w-full h-full max-w-none max-h-none">
+      {/* Blob container */}
+      <div className="relative w-96 h-96 max-w-full max-h-full">
         <svg 
           viewBox="0 0 1200 1200" 
-          className="w-full h-full absolute inset-0"
-          style={{ overflow: 'visible' }}
+          className="w-full h-full relative z-10"
         >
           {/* Main blobs */}
           <g 
@@ -208,14 +207,13 @@ const FeatureSlider = () => {
   }, []);
 
   return (
-    <div className="h-12 flex items-center justify-center">
+    <div className="h-16 flex items-center justify-center">
       <div
-        className={`text-2xl md:text-3xl font-bold transition-all duration-500 transform ${
+        className={`text-xl md:text-2xl text-gray-600 transition-all duration-500 transform ${
           isVisible 
             ? 'opacity-100 translate-x-0' 
             : 'opacity-0 translate-x-8'
         }`}
-        style={{ color: '#527FC3' }}
       >
         {features[currentFeature]}
       </div>
@@ -225,30 +223,37 @@ const FeatureSlider = () => {
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8" style={{ background: '#F7F6F4', color: '#527FC3' }}>
-      <div className="text-center space-y-8 max-w-4xl mx-auto">
-        {/* Brand Name */}
-        <div className="mb-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight" style={{ color: '#527FC3' }}>
-            VENTHRAPY
+    <div className="min-h-screen bg-white text-black flex flex-col items-center justify-center p-8">
+      <div className="text-center space-y-12 max-w-4xl mx-auto">
+        {/* Coming Soon Title */}
+        <div className="space-y-4">
+          <h1 className="text-6xl md:text-8xl font-bold text-gray-900 tracking-tight">
+            COMING
+          </h1>
+          <h1 className="text-6xl md:text-8xl font-bold text-gray-500 tracking-tight">
+            SOON
           </h1>
         </div>
 
-        {/* Coming Soon Title */}
-        <div className="space-y-2">
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight" style={{ color: '#527FC3' }}>
-            COMING SOON
+        {/* Subtitle */}
+        <p className="text-xl md:text-2xl text-gray-600 font-light">
+          Your mental wellness journey starts here
+        </p>
+
+        {/* Feature Slider */}
+        <div className="py-8">
+          <h2 className="text-lg text-gray-400 mb-6 uppercase tracking-wider">
+            What's Coming
           </h2>
-        </div>
-
-        {/* Blob Animation - Main Focus */}
-        <div className="py-4">
-          <BlobAnimation />
-        </div>
-
-        {/* Feature Slider - Compact */}
-        <div className="py-4">
           <FeatureSlider />
+        </div>
+
+        {/* Blob Animation */}
+        <div className="py-8">
+          <h3 className="text-sm text-gray-400 mb-4 uppercase tracking-wider">
+            Preparing Something Amazing
+          </h3>
+          <BlobAnimation />
         </div>
       </div>
     </div>

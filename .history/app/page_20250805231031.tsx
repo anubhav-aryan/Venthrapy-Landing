@@ -50,7 +50,7 @@ const BlobAnimation = () => {
   const palette = palettes[currentPalette as keyof typeof palettes];
 
   return (
-    <div className="relative w-full h-96 flex items-center justify-center">
+    <div className="relative w-full h-96 flex items-center justify-center overflow-hidden">
       {/* Background blur */}
       <div 
         className="absolute w-80 h-80 rounded-full transition-all duration-500 ease-in-out"
@@ -61,12 +61,11 @@ const BlobAnimation = () => {
         }}
       />
       
-      {/* Blob container - now invisible and larger */}
-      <div className="relative w-full h-full max-w-none max-h-none">
+      {/* Blob container */}
+      <div className="relative w-96 h-96 max-w-full max-h-full">
         <svg 
           viewBox="0 0 1200 1200" 
-          className="w-full h-full absolute inset-0"
-          style={{ overflow: 'visible' }}
+          className="w-full h-full relative z-10"
         >
           {/* Main blobs */}
           <g 
@@ -210,7 +209,7 @@ const FeatureSlider = () => {
   return (
     <div className="h-12 flex items-center justify-center">
       <div
-        className={`text-2xl md:text-3xl font-bold transition-all duration-500 transform ${
+        className={`text-lg md:text-xl font-light transition-all duration-500 transform ${
           isVisible 
             ? 'opacity-100 translate-x-0' 
             : 'opacity-0 translate-x-8'

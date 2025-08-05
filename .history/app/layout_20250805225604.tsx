@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Venthrapy - Coming Soon",
-  description: "Venthrapy - Your mental wellness journey starts here. Coming soon.",
+  title: "Coming Soon - Therapy & Mental Wellness Platform",
+  description: "Your mental wellness journey starts here. Coming soon - personalized therapy sessions, 24/7 support, and expert licensed therapists.",
 };
 
 export default function RootLayout({
