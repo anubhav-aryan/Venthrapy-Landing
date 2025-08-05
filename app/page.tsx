@@ -3,11 +3,11 @@
 import { useState, useEffect } from 'react';
 
 const features = [
-  "Personalized Therapy Sessions",
-  "24/7 Mental Health Support", 
-  "Expert Licensed Therapists",
-  "Secure & Private Platform",
-  "Flexible Scheduling"
+  "Culturally-Aware Therapists",
+  "Meditation Library", 
+  "Mood Trackers",
+  "Coping Tools",
+  "Informative Blogs"
 ];
 
 const BlobAnimation = () => {
